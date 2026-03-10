@@ -1,0 +1,632 @@
+<!DOCTYPE html> 
+<html lang="es" class="scroll-smooth">  
+<head>  
+    <meta charset="UTF-8">    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">  
+    <title>El Universo de la Croqueta: Historia, Datos y Recetas</title> 
+    
+    <!-- POSICIONAMIENTO SEO (INVISIBLE PARA EL USUARIO) -->
+    <meta name="description" content="Descubre la historia, recetas perfectas y la ruta de la croqueta en Santander. Aprende la técnica de la bechamel con los mejores maestros.">
+    <meta name="keywords" content="croquetas, receta croquetas, historia croqueta, santander, bechamel, cocina española">
+    
+    <!-- Schema.org FAQ (SEO) -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "¿Cuál es el origen de la croqueta y cómo llegó a España?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "La croqueta tiene un origen francés del siglo XVII, llegando a España a finales del XIX donde se transformó con ingredientes locales como el jamón y el cocido."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "¿Cómo hacer la bechamel perfecta para que las croquetas queden cremosas?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "La clave reside en cocinar bien el roux, añadir leche caliente poco a poco y trabajar la masa durante al menos 20 minutos."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "¿Cuáles son las mejores croquetas de Santander?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Destacan establecimientos emblemáticos como La Ventana, Bodega del Riojano, Casa Cirana y El Jardín del Paraíso."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "¿Cuáles son los sabores de croqueta más populares en España?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "El ranking de popularidad lo lideran el jamón ibérico, seguido del cocido, bacalao, pollo y la tendencia creciente del chorizo."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "¿Qué acompañamientos maridan mejor con una ración de croquetas?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Se recomienda acompañarlas con ensaladilla rusa, pimientos de Padrón, salsa alioli, ensalada fresca o un vino blanco Albariño."
+          }
+        }
+      ]
+    }
+    </script>
+
+    <!-- Favicon --> 
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🧆</text></svg>"> 
+    <script src="https://cdn.tailwindcss.com"></script>  
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>  
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Source+Sans+Pro:wght@300;400;600&display=swap" rel="stylesheet"> 
+    
+    <script>  
+        tailwind.config = {   
+            theme: {   
+                extend: {   
+                    colors: {   
+                        'crema-oscura': '#F5E6D3',   
+                        'crema': '#FFF9F2',   
+                        'terracota': '#C53030', 
+                        'oscuro-profundo': '#1A202C',   
+                    },   
+                    fontFamily: {   
+                        'serif': ['"Playfair Display"', 'serif'],   
+                        'sans': ['"Source Sans Pro"', 'sans-serif'],   
+                    }  
+                }  
+            }  
+        }  
+    </script>  
+    <style>  
+        body { font-family: 'Source Sans Pro', sans-serif; background-color: #FFF9F2; color: #2D3748; overflow-x: hidden; }  
+        
+        .hero-section {   
+            position: relative;   
+            height: 100vh;   
+            width: 100%;   
+            display: flex;   
+            align-items: center;   
+            justify-content: center;   
+            overflow: hidden;   
+        }  
+
+        .hero-image {   
+            position: absolute;   
+            top: 0;   
+            left: 0;   
+            width: 100%;   
+            height: 100%;   
+            background-image: linear-gradient(rgba(0, 0, 0, 0.45), rgba(0, 0, 0, 0.75)),   
+                               url('assets/img/imagen-croqueta-clasico.png');   
+            background-size: cover;   
+            background-position: center;   
+            z-index: 1;   
+        }  
+
+        .stats-bg {   
+            background-image: linear-gradient(rgba(255, 249, 242, 0.85), rgba(255, 249, 242, 0.85)),   
+                               url('assets/img/imagen-croqueta2-clasico.webp');   
+            background-size: cover;   
+            background-position: center;   
+            background-attachment: fixed;   
+        }
+
+        .tecnica-bg-section {
+            background-image: linear-gradient(rgba(255, 249, 242, 0.9), rgba(255, 249, 242, 0.9)), 
+                               url('assets/img/imagen-bechamel-clasico.jpeg');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+        }
+
+        .hero-content {   
+            position: relative;   
+            z-index: 2;   
+            text-align: center;   
+            padding: 0 20px;   
+        }  
+
+        #mobile-menu {   
+            transition: transform 0.3s ease-in-out;   
+            transform: translateX(100%);   
+        }  
+        #mobile-menu.active {   
+            transform: translateX(0);   
+        }  
+
+        .counter-btn {   
+            @apply w-10 h-10 flex items-center justify-center rounded-full border-2 border-terracota text-terracota font-bold hover:bg-terracota hover:text-white transition-colors;   
+        }  
+
+        @keyframes bounce {   
+            0%, 20%, 50%, 80%, 100% {transform: translateY(0);}   
+            40% {transform: translateY(-10px);}   
+            60% {transform: translateY(-5px);}   
+        }  
+        .bounce-arrow {   
+            animation: bounce 2s infinite;   
+        }  
+          
+        .recipe-btn.active {   
+            @apply bg-terracota text-white border-terracota shadow-md;   
+        }  
+    </style>  
+</head>  
+<body class="antialiased">  
+
+    <!-- Navegación -->  
+    <nav class="fixed w-full bg-crema-oscura/95 backdrop-blur-md z-50 border-b border-orange-100 shadow-sm">  
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">  
+            <div class="flex justify-between h-16 items-center">  
+                <a href="#hero" class="text-terracota font-serif text-2xl tracking-wide font-bold uppercase">La Croqueta</a>  
+                <button onclick="toggleMenu(true)" class="p-2 text-oscuro-profundo hover:text-terracota focus:outline-none transition-colors">  
+                    <span class="text-3xl">&#9776;</span>  
+                </button>  
+            </div>  
+        </div>  
+    </nav>  
+
+    <!-- Menú Lateral -->  
+    <div id="menu-overlay" onclick="toggleMenu(false)" class="fixed inset-0 bg-black/60 z-[60] hidden transition-opacity duration-300 opacity-0"></div>  
+    <div id="mobile-menu" class="fixed top-0 right-0 h-full w-80 bg-white z-[70] shadow-2xl p-8 flex flex-col">  
+        <div class="flex justify-end mb-8">  
+            <button onclick="toggleMenu(false)" class="text-4xl text-gray-300 hover:text-terracota transition-colors">&times;</button>  
+        </div>  
+        <div class="flex flex-col space-y-6 text-xl font-bold font-serif tracking-widest">  
+            <a href="#hero" onclick="toggleMenu(false)" class="hover:text-terracota transition-colors uppercase">INICIO</a>  
+            <a href="#historia" onclick="toggleMenu(false)" class="hover:text-terracota transition-colors uppercase">HISTORIA</a>  
+            <a href="#datos" onclick="toggleMenu(false)" class="hover:text-terracota transition-colors uppercase">POPULARIDAD</a>  
+            <a href="#recetas" onclick="toggleMenu(false)" class="hover:text-terracota transition-colors uppercase">RECETARIO</a>  
+            <a href="#acompañantes" onclick="toggleMenu(false)" class="hover:text-terracota transition-colors uppercase">ACOMPAÑANTES</a> 
+            <a href="#restaurantes" onclick="toggleMenu(false)" class="hover:text-terracota transition-colors uppercase text-sm">RUTA SANTANDER</a> 
+            <a href="#técnica" onclick="toggleMenu(false)" class="hover:text-terracota transition-colors uppercase">TÉCNICA</a>  
+            <a href="#redes" onclick="toggleMenu(false)" class="hover:text-terracota transition-colors uppercase">MAESTROS</a>  
+            <a href="#contacto" onclick="toggleMenu(false)" class="hover:text-terracota transition-colors uppercase border-t pt-6">CONTACTO</a>  
+        </div>  
+    </div>  
+
+    <!-- Hero -->  
+    <section id="hero" class="hero-section">  
+        <div class="hero-image"></div>  
+        <div class="hero-content max-w-4xl">  
+            <h1 class="text-6xl md:text-8xl font-serif font-bold text-white mb-6 drop-shadow-2xl">  
+                El Arte de la <br><span class="text-terracota">Croqueta</span>  
+            </h1>  
+            <p class="text-xl md:text-2xl text-gray-200 leading-relaxed max-w-2xl mx-auto font-light drop-shadow-lg">  
+                Crujientes por fuera, cremosas por dentro. Descubre el legado cultural, la ciencia de la bechamel y los secretos mejor guardados de la tapa reina.  
+            </p>  
+            <div class="mt-12">  
+                <a href="#historia" class="text-white text-5xl bounce-arrow inline-block opacity-80 hover:opacity-100 transition-opacity">  
+                    &#8595;  
+                </a>  
+            </div>  
+        </div>  
+    </section>  
+
+    <!-- Historia -->  
+    <section id="historia" class="py-24 bg-white">  
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">  
+            <div class="max-w-3xl mx-auto text-center mb-16">  
+                <h2 class="text-4xl md:text-5xl font-serif font-bold text-oscuro-profundo mb-6 uppercase">DE FRANCIA A LAS MESAS DE ESPAÑA</h2>  
+                <div class="w-24 h-1 bg-terracota mx-auto mb-8"></div>  
+                <p class="text-gray-600 text-lg leading-relaxed">La evolución de un bocado real que se convirtió en el emblema indiscutible de nuestra gastronomía popular.</p>  
+            </div>  
+              
+            <div class="grid md:grid-cols-2 gap-10 max-w-5xl mx-auto">  
+                <div class="bg-crema p-8 rounded-2xl border-l-4 border-terracota shadow-sm">  
+                    <h3 class="text-xl font-bold text-terracota mb-3">1. El Origen de la Bechamel</h3>  
+                    <p class="text-gray-700">Aunque bautizada por Louis de Béchameil, fue la cocina francesa del siglo XVII la que refinó esta salsa, pilar fundamental de la cremosidad que hoy conocemos.</p>  
+                </div>  
+                <div class="bg-crema p-8 rounded-2xl border-l-4 border-terracota shadow-sm">  
+                    <h3 class="text-xl font-bold text-terracota mb-3">2. 1817: Las "Croquettes" Reales</h3>  
+                    <p class="text-gray-700">El chef Antonin Carême deslumbró en un banquete real con las "Croquettes à la Royale", estableciendo la técnica del rebozado crujiente (del francés 'croquer').</p>  
+                </div>  
+                <div class="bg-crema p-8 rounded-2xl border-l-4 border-terracota shadow-sm">  
+                    <h3 class="text-xl font-bold text-terracota mb-3">3. Llegada a España</h3>  
+                    <p class="text-gray-700">A finales del XIX, la receta cruza los Pirineos y se transforma. España aporta el uso ingenioso de sobras de cocido y jamón, creando una identidad propia.</p>  
+                </div>  
+                <div class="bg-crema p-8 rounded-2xl border-l-4 border-terracota shadow-sm">  
+                    <h3 class="text-xl font-bold text-terracota mb-3">4. El Mito de la Abuela</h3>  
+                    <p class="text-gray-700">La croqueta hoy es más que comida; es un recuerdo emocional. La receta familiar transmitida de generación en generación es el estándar de oro del sabor.</p>  
+                </div>  
+            </div>  
+        </div>  
+    </section>  
+
+    <!-- Popularidad -->  
+    <section id="datos" class="py-24 stats-bg">  
+        <div class="max-w-6xl mx-auto px-4">  
+            <div class="grid md:grid-cols-2 gap-12 items-center">  
+                <div>  
+                    <h2 class="text-4xl font-serif font-bold text-oscuro-profundo mb-6 uppercase tracking-tight">¿CUÁL PREFIEREN LOS ESPAÑOLES?</h2>  
+                    <p class="text-gray-700 mb-8 leading-relaxed font-semibold">Las estadísticas confirman la hegemonía de los sabores clásicos frente a las nuevas tendencias gourmet, destacando la fuerte entrada del chorizo en el ranking.</p>  
+                </div>  
+                <div class="bg-white/90 backdrop-blur-sm p-8 rounded-3xl shadow-xl">  
+                    <div style="height: 350px;">  
+                        <canvas id="croquetaChart"></canvas>  
+                    </div>  
+                </div>  
+            </div>  
+        </div>  
+    </section>  
+
+    <!-- Recetario (Calculadora) -->  
+    <section id="recetas" class="py-24 bg-white">  
+        <div class="max-w-6xl mx-auto px-4">  
+            <h2 class="text-4xl font-serif font-bold text-center text-oscuro-profundo mb-12 uppercase">Calculadora de Ingredientes</h2>  
+              
+            <div class="flex flex-col lg:flex-row gap-8">  
+                <div class="lg:w-1/3 flex flex-col gap-3">  
+                    <button onclick="updateRecipe('jamon')" id="btn-jamon" class="recipe-btn text-left p-5 rounded-2xl border-2 font-bold transition-all active">Jamón Ibérico</button>  
+                    <button onclick="updateRecipe('cocido')" id="btn-cocido" class="recipe-btn text-left p-5 rounded-2xl border-2 font-bold transition-all bg-gray-50">Tradición Cocido</button>  
+                    <button onclick="updateRecipe('chorizo')" id="btn-chorizo" class="recipe-btn text-left p-5 rounded-2xl border-2 font-bold transition-all bg-gray-50">Chorizo Picante</button>  
+                    <button onclick="updateRecipe('pollo')" id="btn-pollo" class="recipe-btn text-left p-5 rounded-2xl border-2 font-bold transition-all bg-gray-50">Pollo al Horno</button>  
+                    <button onclick="updateRecipe('bacalao')" id="btn-bacalao" class="recipe-btn text-left p-5 rounded-2xl border-2 font-bold transition-all bg-gray-50">Delicia Bacalao</button>  
+                </div>  
+
+                <div class="lg:w-2/3 bg-gray-50 p-8 rounded-3xl border border-gray-100 shadow-inner min-h-[500px]">  
+                    <div class="flex flex-col md:flex-row justify-between items-start md:items-center gap-6 border-b pb-6 mb-8">  
+                        <div>  
+                            <h3 id="recipe-title" class="text-3xl font-serif font-bold text-oscuro-profundo uppercase">Receta</h3>  
+                            <p id="recipe-desc" class="text-gray-500 mt-1 italic"></p>  
+                        </div>  
+                        <div class="bg-white p-4 rounded-2xl shadow-sm flex items-center gap-4">  
+                            <span class="text-sm font-bold text-gray-400 uppercase">PERSONAS</span>  
+                            <div class="flex items-center gap-4">  
+                                <button onclick="changeGuests(-1)" class="counter-btn">-</button>  
+                                <span id="guest-count" class="text-2xl font-bold w-8 text-center">4</span>  
+                                <button onclick="changeGuests(1)" class="counter-btn">+</button>  
+                            </div>  
+                        </div>  
+                    </div>  
+
+                    <div class="space-y-6">  
+                        <h4 class="text-lg font-bold text-terracota uppercase tracking-wider text-sm">Ingredientes Necesarios:</h4>  
+                        <ul id="ingredients-list" class="grid grid-cols-1 md:grid-cols-2 gap-4"></ul>  
+                        <div class="bg-white p-6 rounded-2xl border-l-4 border-terracota mt-8 shadow-sm">  
+                            <p id="recipe-tip" class="text-gray-700 italic"></p>  
+                        </div>  
+                    </div>  
+                </div>  
+            </div>  
+        </div>  
+    </section>
+
+    <!-- Sección Acompañantes -->
+    <section id="acompañantes" class="py-24 bg-white border-t border-crema-oscura">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="max-w-3xl mx-auto text-center mb-16">
+                <h2 class="text-4xl md:text-5xl font-serif font-bold text-oscuro-profundo mb-6 uppercase">Los Mejores Acompañantes</h2>
+                <div class="w-24 h-1 bg-terracota mx-auto mb-8"></div>
+                <p class="text-gray-600 text-lg leading-relaxed font-semibold">Toda gran croqueta merece un compañero a su altura. Estas son nuestras recomendaciones estrella.</p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Card 1 -->
+                <div class="bg-crema rounded-3xl overflow-hidden shadow-md flex flex-col transition-transform hover:-translate-y-2">
+                    <img src="assets/img/imagen-ensaladilla-clasico.jpeg" alt="Ensaladilla Rusa" class="w-full h-48 object-cover">
+                    <div class="p-6 flex-grow">
+                        <h3 class="text-xl font-bold text-oscuro-profundo mb-3">Ensaladilla Rusa</h3>
+                        <p class="text-gray-600 text-sm mb-4">El contrapunto frío y cremoso ideal para una croqueta recién frita.</p>
+                        <a href="https://www.youtube.com/results?search_query=receta+ensaladilla+rusa+perfecta" target="_blank" class="text-terracota font-bold hover:underline text-sm uppercase tracking-wider">Ver Vídeo Receta</a>
+                    </div>
+                </div>
+                <!-- Card 2 -->
+                <div class="bg-crema rounded-3xl overflow-hidden shadow-md flex flex-col transition-transform hover:-translate-y-2">
+                    <img src="assets/img/imagen-pimientopadron-clasico.jpeg" alt="Pimientos Padrón" class="w-full h-48 object-cover">
+                    <div class="p-6 flex-grow">
+                        <h3 class="text-xl font-bold text-oscuro-profundo mb-3">Pimientos de Padrón</h3>
+                        <p class="text-gray-600 text-sm mb-4">Un toque de sal gorda y ese picante aleatorio que tanto nos gusta.</p>
+                        <a href="https://www.youtube.com/results?search_query=freir+pimientos+padron" target="_blank" class="text-terracota font-bold hover:underline text-sm uppercase tracking-wider">Ver Vídeo Receta</a>
+                    </div>
+                </div>
+                <!-- Card 3 -->
+                <div class="bg-crema rounded-3xl overflow-hidden shadow-md flex flex-col transition-transform hover:-translate-y-2">
+                    <img src="assets/img/imagen-alioli-clasico.png" alt="Alioli" class="w-full h-48 object-cover">
+                    <div class="p-6 flex-grow">
+                        <h3 class="text-xl font-bold text-oscuro-profundo mb-3">Salsa Alioli Casera</h3>
+                        <p class="text-gray-600 text-sm mb-4">Para los amantes de las emociones fuertes y el sabor intenso a ajo.</p>
+                        <a href="https://www.youtube.com/results?search_query=como+hacer+alioli+casero" target="_blank" class="text-terracota font-bold hover:underline text-sm uppercase tracking-wider">Ver Vídeo Receta</a>
+                    </div>
+                </div>
+                <!-- Card 4 -->
+                <div class="bg-crema rounded-3xl overflow-hidden shadow-md flex flex-col transition-transform hover:-translate-y-2">
+                    <img src="assets/img/imagen-ensalada-clasico.jpeg" alt="Ensalada Verde" class="w-full h-48 object-cover">
+                    <div class="p-6 flex-grow">
+                        <h3 class="text-xl font-bold text-oscuro-profundo mb-3">Ensalada de Brotes</h3>
+                        <p class="text-gray-700 text-sm mb-4">Aporta frescura y ligereza para limpiar el paladar entre bocado y bocado.</p>
+                        <a href="https://www.youtube.com/results?search_query=aliño+ensalada+verde+gourmet" target="_blank" class="text-terracota font-bold hover:underline text-sm uppercase tracking-wider">Ver Vídeo Receta</a>
+                    </div>
+                </div>
+                <!-- Card 5 -->
+                <div class="bg-crema rounded-3xl overflow-hidden shadow-md flex flex-col transition-transform hover:-translate-y-2">
+                    <img src="assets/img/imagen-vino-clasico.jpeg" alt="Vino Blanco" class="w-full h-48 object-cover">
+                    <div class="p-6 flex-grow">
+                        <h3 class="text-xl font-bold text-oscuro-profundo mb-3">Vino Blanco Albariño</h3>
+                        <p class="text-gray-600 text-sm mb-4">La acidez perfecta para equilibrar la suntuosidad de la bechamel.</p>
+                        <a href="https://www.youtube.com/results?search_query=maridaje+vinos+croquetas" target="_blank" class="text-terracota font-bold hover:underline text-sm uppercase tracking-wider">Ver Vídeo Maridaje</a>
+                    </div>
+                </div>
+                <!-- Card 6 -->
+                <div class="bg-crema rounded-3xl overflow-hidden shadow-md flex flex-col transition-transform hover:-translate-y-2">
+                    <img src="assets/img/imagen-pan-clasico.jpeg" alt="Pan Artesano" class="w-full h-48 object-cover">
+                    <div class="p-6 flex-grow">
+                        <h3 class="text-xl font-bold text-oscuro-profundo mb-3">Pan de Hogaza</h3>
+                        <p class="text-gray-600 text-sm mb-4">Porque nunca hay suficiente pan para acompañar una buena ración.</p>
+                        <a href="https://www.youtube.com/results?search_query=como+hacer+pan+artesano+facil" target="_blank" class="text-terracota font-bold hover:underline text-sm uppercase tracking-wider">Ver Vídeo Receta</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- La Técnica -->
+    <section id="técnica" class="py-24 tecnica-bg-section text-oscuro-profundo">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="max-w-3xl mx-auto text-center mb-16">
+                <h2 class="text-4xl md:text-5xl font-serif font-bold mb-6 uppercase">La Técnica Perfecta</h2>
+                <div class="w-24 h-1 bg-terracota mx-auto mb-8"></div>
+                <p class="text-gray-800 text-lg leading-relaxed font-semibold">Dominar la croqueta requiere paciencia, mimo y respetar los cuatro pilares fundamentales de su elaboración.</p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                <div class="bg-white/95 p-8 rounded-2xl shadow-sm border-t-4 border-terracota hover:-translate-y-2 transition-transform duration-300">
+                    <div class="text-terracota font-serif text-5xl font-bold mb-4 opacity-50">01</div>
+                    <h3 class="text-xl font-bold mb-3 uppercase tracking-wide">El Roux</h3>
+                    <p class="text-gray-600 text-sm">Cocinar la harina en mantequilla a fuego suave es vital para quitar el sabor a crudo.</p>
+                </div>
+                <div class="bg-white/95 p-8 rounded-2xl shadow-sm border-t-4 border-terracota hover:-translate-y-2 transition-transform duration-300">
+                    <div class="text-terracota font-serif text-5xl font-bold mb-4 opacity-50">02</div>
+                    <h3 class="text-xl font-bold mb-3 uppercase tracking-wide">La Leche</h3>
+                    <p class="text-gray-600 text-sm">Añadir leche caliente poco a poco. Al menos 20 minutos de brazo para evitar grumos.</p>
+                </div>
+                <div class="bg-white/95 p-8 rounded-2xl shadow-sm border-t-4 border-terracota hover:-translate-y-2 transition-transform duration-300">
+                    <div class="text-terracota font-serif text-5xl font-bold mb-4 opacity-50">03</div>
+                    <h3 class="text-xl font-bold mb-3 uppercase tracking-wide">El Reposo</h3>
+                    <p class="text-gray-600 text-sm">Mínimo 12 horas en la nevera, cubierta con film "a piel" para evitar costra.</p>
+                </div>
+                <div class="bg-white/95 p-8 rounded-2xl shadow-sm border-t-4 border-terracota hover:-translate-y-2 transition-transform duration-300">
+                    <div class="text-terracota font-serif text-5xl font-bold mb-4 opacity-50">04</div>
+                    <h3 class="text-xl font-bold mb-3 uppercase tracking-wide">La Fritura</h3>
+                    <p class="text-gray-600 text-sm">Empanado sutil y a freír en abundante aceite de oliva muy caliente (180ºC).</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Ruta Santander -->
+    <section id="restaurantes" class="py-24 bg-crema text-oscuro-profundo">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="max-w-3xl mx-auto text-center mb-16">
+                <h2 class="text-4xl md:text-5xl font-serif font-bold mb-6 uppercase">Ruta de la Croqueta en Santander</h2>
+                <div class="w-24 h-1 bg-terracota mx-auto mb-8"></div>
+                <p class="text-gray-600 text-lg leading-relaxed">Una selección imprescindible en la capital cántabra donde degustar este bocado es una auténtica experiencia culinaria.</p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <div class="bg-white rounded-3xl shadow-lg overflow-hidden flex flex-col transition-transform hover:-translate-y-2 duration-300">
+                    <img src="assets/img/imagen-laventana-clasico.jpeg" alt="La Ventana" class="w-full h-48 object-cover">
+                    <div class="p-6 flex-grow flex flex-col justify-between">
+                        <div>
+                            <h3 class="text-xl font-serif font-bold text-oscuro-profundo mb-2">La Ventana</h3>
+                            <p class="text-sm text-gray-600 mb-4">Un espacio acogedor y con encanto donde la tradición cántabra se eleva con toques modernos.</p>
+                        </div>
+                        <a href="https://www.restaurantelaventana.com/" target="_blank" class="inline-block text-center w-full py-3 bg-terracota text-white font-bold rounded-xl hover:bg-red-700 transition-colors uppercase tracking-wider text-sm mt-4">Visitar Web</a>
+                    </div>
+                </div>
+
+                <div class="bg-white rounded-3xl shadow-lg overflow-hidden flex flex-col transition-transform hover:-translate-y-2 duration-300">
+                    <img src="assets/img/imagen-bodega-clasico.jpeg" alt="Bodega del Riojano" class="w-full h-48 object-cover">
+                    <div class="p-6 flex-grow flex flex-col justify-between">
+                        <div>
+                            <h3 class="text-xl font-serif font-bold text-oscuro-profundo mb-2">Bodega del Riojano</h3>
+                            <p class="text-sm text-gray-600 mb-4">Historia viva de Santander. Arte en sus paredes y unas croquetas míticas.</p>
+                        </div>
+                        <a href="https://bodegadelriojano.com" target="_blank" class="inline-block text-center w-full py-3 bg-terracota text-white font-bold rounded-xl hover:bg-red-700 transition-colors uppercase tracking-wider text-sm mt-4">Visitar Web</a>
+                    </div>
+                </div>
+
+                <div class="bg-white rounded-3xl shadow-lg overflow-hidden flex flex-col transition-transform hover:-translate-y-2 duration-300">
+                    <img src="assets/img/imagen-cirana-clasico.jpeg" alt="Casa Cirana" class="w-full h-48 object-cover">
+                    <div class="p-6 flex-grow flex flex-col justify-between">
+                        <div>
+                            <h3 class="text-xl font-serif font-bold text-oscuro-profundo mb-2">Casa Cirana</h3>
+                            <p class="text-sm text-gray-600 mb-4">Cocina honesta, con sabor a hogar y un cuidado extremo en la bechamel.</p>
+                        </div>
+                        <a href="https://casacirana.com" target="_blank" class="inline-block text-center w-full py-3 bg-terracota text-white font-bold rounded-xl hover:bg-red-700 transition-colors uppercase tracking-wider text-sm mt-4">Visitar Web</a>
+                    </div>
+                </div>
+
+                <div class="bg-white rounded-3xl shadow-lg overflow-hidden flex flex-col transition-transform hover:-translate-y-2 duration-300">
+                    <img src="assets/img/imagen-eljardin-clasico.jpeg" alt="El Jardín del Paraíso" class="w-full h-48 object-cover">
+                    <div class="p-6 flex-grow flex flex-col justify-between">
+                        <div>
+                            <h3 class="text-xl font-serif font-bold text-oscuro-profundo mb-2">El Jardín del Paraíso</h3>
+                            <p class="text-sm text-gray-600 mb-4">Un entorno idílico y sorprendente para disfrutar de una ración inolvidable.</p>
+                        </div>
+                        <a href="https://eljardindelparaiso.eatbu.com/?lang=es#" target="_blank" class="inline-block text-center w-full py-3 bg-terracota text-white font-bold rounded-xl hover:bg-red-700 transition-colors uppercase tracking-wider text-sm mt-4">Visitar Web</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Maestros -->  
+    <section id="redes" class="py-24 bg-oscuro-profundo text-white">  
+        <div class="max-w-6xl mx-auto px-4">  
+            <h2 class="text-4xl font-serif font-bold mb-16 text-center uppercase tracking-widest">Voces de la Experiencia</h2>  
+            <div class="grid md:grid-cols-2 gap-12">  
+                <div class="bg-gray-800/50 p-10 rounded-3xl border border-gray-700 flex flex-col md:flex-row gap-6">  
+                    <img src="assets/img/imagen-arguinano-clasico.jpeg" alt="Karlos Arguiñano" class="w-32 h-32 rounded-full object-cover border-4 border-terracota mx-auto md:mx-0">  
+                    <div>  
+                        <h4 class="text-2xl font-serif font-bold mb-4">Karlos Arguiñano</h4>  
+                        <p class="text-gray-400 italic mb-4">"El secreto es el cariño y la paciencia con la harina. ¡Rico, rico y con fundamento!"</p>  
+                        <a href="https://www.hogarmania.com/cocina/cocineros/karlos-arguinano/" target="_blank" class="text-terracota font-bold tracking-widest text-sm uppercase hover:underline">Visitar Web</a>  
+                    </div>  
+                </div>  
+                <div class="bg-gray-800/50 p-10 rounded-3xl border border-gray-700 flex flex-col md:flex-row gap-6">  
+                    <img src="assets/img/imagen-rafuel-clasico.png .avif" alt="Rafuel" class="w-32 h-32 rounded-full object-cover border-4 border-terracota mx-auto md:mx-0">  
+                    <div>  
+                        <h4 class="text-2xl font-serif font-bold mb-4">Rafuel</h4>  
+                        <p class="text-gray-400 italic mb-4">"Buscamos la cremosidad extrema. Que al morderla, la croqueta casi se desborde."</p>  
+                        <a href="https://www.instagram.com/rafuel55/" target="_blank" class="text-terracota font-bold tracking-widest text-sm uppercase hover:underline">Instagram</a> 
+                    </div> 
+                </div> 
+            </div> 
+        </div> 
+    </section>
+
+    <!-- Contacto -->
+    <section id="contacto" class="py-24 bg-crema-oscura/30">
+        <div class="max-w-4xl mx-auto px-4">  
+            <h2 class="text-4xl font-serif font-bold text-center text-oscuro-profundo mb-12 uppercase">Contacta con Nosotros</h2>  
+            <div class="grid md:grid-cols-2 gap-12 mb-16">
+                <div class="space-y-6">
+                    <h3 class="text-2xl font-serif font-bold text-terracota">Información</h3>
+                    <div class="space-y-4 text-sm text-gray-700">
+                        <p><strong class="uppercase text-xs block text-gray-400 tracking-tighter">Teléfono</strong> +34 942 33 44 55</p>
+                        <p><strong class="uppercase text-xs block text-gray-400 tracking-tighter">Email</strong> sara.croqueta@universo.com</p>
+                        <p><strong class="uppercase text-xs block text-gray-400 tracking-tighter">Dirección</strong> Paseo de Pereda, 12, Santander</p>
+                    </div>
+                </div>
+                <div class="bg-white p-8 rounded-3xl shadow-xl border border-gray-100">  
+                    <form action="#" class="space-y-4">  
+                        <input type="text" placeholder="Nombre" class="w-full p-3 bg-gray-50 border border-gray-200 rounded-xl focus:outline-none focus:border-terracota">  
+                        <input type="email" placeholder="Email" class="w-full p-3 bg-gray-50 border border-gray-200 rounded-xl focus:outline-none focus:border-terracota">  
+                        <textarea placeholder="Tu mensaje..." rows="4" class="w-full p-3 bg-gray-50 border border-gray-200 rounded-xl focus:outline-none focus:border-terracota"></textarea> 
+                        <button type="submit" class="w-full py-4 bg-terracota text-white font-bold rounded-xl hover:bg-red-700 transition-colors uppercase tracking-widest">Enviar Mensaje</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer --> 
+    <footer class="bg-oscuro-profundo text-gray-400 py-16">
+        <div class="max-w-6xl mx-auto px-4 text-center">
+            <div class="mb-8"> 
+                <h3 class="text-white font-serif text-2xl font-bold uppercase tracking-widest mb-6">La Croqueta</h3>
+                <p class="max-w-md mx-auto mb-8">Homenaje culinario a la reina de la gastronomía española. Pasión por la bechamel desde 2024.</p>
+                <div class="flex justify-center gap-6 text-white/50">
+                    <a href="#" class="hover:text-terracota transition-colors">Instagram</a>
+                    <a href="#" class="hover:text-terracota transition-colors">Facebook</a>
+                    <a href="#" class="hover:text-terracota transition-colors">Twitter</a>
+                </div>
+            </div>
+            <div class="border-t border-gray-800 pt-8 text-xs uppercase tracking-widest">
+                &copy; 2024 El Universo de la Croqueta. Todos los derechos reservados.
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script>
+        function toggleMenu(show) {
+            const menu = document.getElementById('mobile-menu');
+            const overlay = document.getElementById('menu-overlay');
+            if (show) {
+                menu.classList.add('active');
+                overlay.classList.remove('hidden');
+                setTimeout(() => overlay.classList.add('opacity-100'), 10);
+            } else {
+                menu.classList.remove('active');
+                overlay.classList.remove('opacity-100');
+                setTimeout(() => overlay.classList.add('hidden'), 300);
+            }
+        }
+
+        // Gráfico de popularidad
+        const ctx = document.getElementById('croquetaChart').getContext('2d');
+        new Chart(ctx, {
+            type: 'bar',
+            data: {
+                labels: ['Jamón', 'Cocido', 'Chorizo', 'Bacalao', 'Setas', 'Queso'],
+                datasets: [{
+                    label: '% Preferencia',
+                    data: [45, 25, 12, 10, 5, 3],
+                    backgroundColor: '#C53030',
+                    borderRadius: 8
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                scales: {
+                    y: { beginAtZero: true, grid: { display: false } },
+                    x: { grid: { display: false } }
+                },
+                plugins: { legend: { display: false } }
+            }
+        });
+
+        // Lógica Calculadora de Recetas
+        let currentGuests = 4;
+        let currentType = 'jamon';
+
+        const recipeData = {
+            jamon: { title: "Jamón Ibérico", desc: "La elegancia del sabor tradicional", tip: "Corta el jamón en trozos muy pequeños y añádelo justo al final para que no suelte demasiada sal.", base: { harina: 100, leche: 1, jamon: 150, mantequilla: 100 } },
+            cocido: { title: "Tradición Cocido", desc: "Sabor a hogar y aprovechamiento", tip: "Usa el caldo del cocido mezclado con la leche para una intensidad de sabor insuperable.", base: { harina: 100, leche: 0.8, carne: 200, mantequilla: 100 } },
+            chorizo: { title: "Chorizo Picante", desc: "Para los amantes de las emociones fuertes", tip: "Desgrasa un poco el chorizo en la sartén antes de añadirlo a la bechamel.", base: { harina: 110, leche: 1, chorizo: 180, mantequilla: 90 } },
+            pollo: { title: "Pollo al Horno", desc: "Suavidad y textura delicada", tip: "El pollo asado del día anterior tiene los jugos concentrados; es el mejor para esta receta.", base: { harina: 100, leche: 1, pollo: 200, mantequilla: 100 } },
+            bacalao: { title: "Delicia Bacalao", desc: "El toque marinero perfecto", tip: "Asegúrate de desalar bien el bacalao y añadir un poco de perejil fresco picado.", base: { harina: 120, leche: 1, bacalao: 250, mantequilla: 100 } }
+        };
+
+        function changeGuests(val) {
+            currentGuests = Math.max(1, Math.min(20, currentGuests + val));
+            document.getElementById('guest-count').innerText = currentGuests;
+            renderIngredients();
+        }
+
+        function updateRecipe(type) {
+            currentType = type;
+            document.querySelectorAll('.recipe-btn').forEach(btn => {
+                btn.classList.remove('active', 'bg-terracota', 'text-white');
+                btn.classList.add('bg-gray-50');
+            });
+            const activeBtn = document.getElementById(`btn-${type}`);
+            activeBtn.classList.add('active');
+            
+            const data = recipeData[type];
+            document.getElementById('recipe-title').innerText = data.title;
+            document.getElementById('recipe-desc').innerText = data.desc;
+            document.getElementById('recipe-tip').innerText = data.tip;
+            renderIngredients();
+        }
+
+        function renderIngredients() {
+            const list = document.getElementById('ingredients-list');
+            const data = recipeData[currentType].base;
+            const factor = currentGuests / 4;
+            
+            let html = `
+                <li class="bg-white p-4 rounded-xl shadow-sm border border-gray-100 flex justify-between items-center">
+                    <span class="text-gray-500">Leche Entera</span>
+                    <span class="font-bold text-oscuro-profundo">${(data.leche * factor).toFixed(1)} L</span>
+                </li>
+                <li class="bg-white p-4 rounded-xl shadow-sm border border-gray-100 flex justify-between items-center">
+                    <span class="text-gray-500">Harina de Trigo</span>
+                    <span class="font-bold text-oscuro-profundo">${Math.round(data.harina * factor)} g</span>
+                </li>
+                <li class="bg-white p-4 rounded-xl shadow-sm border border-gray-100 flex justify-between items-center">
+                    <span class="text-gray-500">Mantequilla</span>
+                    <span class="font-bold text-oscuro-profundo">${Math.round(data.mantequilla * factor)} g</span>
+                </li>
+                <li class="bg-white p-4 rounded-xl shadow-sm border border-gray-100 flex justify-between items-center">
+                    <span class="text-gray-500">${currentType === 'jamon' ? 'Jamón' : currentType === 'bacalao' ? 'Bacalao' : 'Ingrediente Principal'}</span>
+                    <span class="font-bold text-oscuro-profundo">${Math.round((data.jamon || data.carne || data.chorizo || data.pollo || data.bacalao) * factor)} g</span>
+                </li>
+            `;
+            list.innerHTML = html;
+        }
+
+        // Inicializar
+        updateRecipe('jamon');
+    </script>
+</body>  
+</html>
